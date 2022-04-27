@@ -1,0 +1,131 @@
+html,body {
+  font-family: Calibri;
+}
+h1,h2,h3, .h1, .h2, .h3 .card-title {
+  font-family: Jomhuria;
+}
+.navbar-brand {
+  font-size: 3rem;
+}
+.grid-sizer,
+.grid-item { width: 33%; }
+/* 2 columns wide */
+.grid-item--width2 { width: 66%; }
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .grid-sizer,
+  .grid-item,
+  .grid-item--width2 { width: 100%; }
+}
+.card {
+
+}
+.card-img-top {
+  width: 100%;
+  height: 300px;
+  position: relative;
+      display: inline-block;
+      object-fit: cover;
+      filter: gray;
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(1);
+      transition: all 0.3s ease-in-out;
+}
+.card-img-top:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+a:after {
+  content: '';
+  color: inherit;
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #111;
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+
+a:hover:after {
+  color: inherit;
+  transform: scaleX(1);
+  transform-origin: bottom right;
+}
+@font-face {
+	font-family: Jomhuria;
+	font-style: normal;
+	font-weight: 900;
+	src: url('/assets/css/fonts/Jomhuria-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: Jomhuria;
+	font-style: normal;
+	font-weight: bold;
+	src: url('/assets/css/fonts/Jomhuria-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: Jomhuria;
+	font-style: normal;
+	font-weight: 500;
+	src: url('/assets/css/fonts/Jomhuria-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: Jomhuria;
+	font-style: normal;
+	font-weight: 300;
+	src: url('/assets/css/fonts/Jomhuria-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: Jomhuria;
+	font-style: normal;
+	font-weight: 200;
+	src: url('/assets/css/fonts/Jomhuria-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: Jomhuria;
+	font-style: normal;
+	font-weight: normal;
+	src: url('/assets/css/fonts/Jomhuria-Regular.ttf') format('truetype');
+}
+.footer{
+  .links{
+    ul {list-style-type: none;}
+    li a{
+      color: white;
+      transition: color .2s;
+      &:hover{
+        text-decoration:none;
+        }
+    }
+  }
+  .about-company{
+    i{font-size: 25px;}
+    a{
+      color:white;
+      transition: color .2s;
+      &:hover{color:#4180CB}
+    }
+  }
+  .location{
+    i{font-size: 18px;}
+  }
+  .copyright p{border-top:1px solid rgba(255,255,255,.1);}
+}
+input, .form-control:focus {
+  box-shadow: none;
+}
+.btn:focus,
+.btn:active{
+    box-shadow:none !important;
+    outline:0px !important;
+}

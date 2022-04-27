@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+{%assign pagecollection = page.collection %}
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3><a href="/{{page.collection}}">{{page.collection}}</a></h3>
+      <h1 class="display-1">{{page.title}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <div class="row border-between" data-masonry='{"originLeft": false, "columnWidth": ".grid-sizer", "itemSelector": ".grid-item","percentPosition": true }'>
+          <div class="grid-sizer"></div>
+          {% assign filtered_posts = site.posts | where: pagecollection, page.slug  %}
+          {% for post in filtered_posts %}
+          {% include card.html%}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

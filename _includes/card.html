@@ -1,0 +1,13 @@
+{% for category in post.categories %}{% assign cat = site.categories | where: 'slug', category | first %}
+{% if cat %}{%unless cat.slug == page.slug %}{% assign botcat = cat.title %}{% assign botcaturl = cat.url %}{% endunless %}{% endif %}
+{% endfor %}
+<div class="grid-item {% if post.featured %} grid-item--width2{% endif %} {{post.categories}} px-2 pb-4 mb-2">
+  <div class="card rounded-0 border-3 border-dark border-start-0 border-end-0 border-top-0">
+    {% if post.coverImg %}<a href="{{post.url}}"><img src="{{post.coverImg}}" class="card-img-top" alt="..."></a>{% endif %}
+      <div class="card-body p-0">
+        <small class="bold">{% if botcat%}<span class="text-danger"><a class="text-reset" href="{{botcaturl}}">{{botcat}}</a></span> | {% endif %}<span class="persianDate" data-timestamp="{{post.date | date: '%s'}}"></span></small>
+        <h3 class="card-title {% if post.tags contains 'featured' %}display-4 {%else%}display-6 {%endif%}p-0 m-0"><a class="text-reset" href="{{post.url}}">{{post.title}}</a></h3>
+        <div class="card-text p-0">{{post.tags }}</div>
+      </div>
+  </div>
+</div>

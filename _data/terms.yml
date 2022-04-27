@@ -1,0 +1,10 @@
+- name: citygap
+  label: سیتی‌گپ
+- name: article
+  label: مقاله
+- name: abadi
+  label: آبادی
+- name: categories
+  label: دسته‌ها
+- name: tags
+  label: برچسب‌ها

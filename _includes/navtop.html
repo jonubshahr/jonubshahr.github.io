@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white {% if page.url == '/' %} fixed-top py-3{% endif%}">
+    <div class="container">
+        <a href="/" class="navbar-brand h1">جنوب‌شهر</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+            </div>
+            <div class="navbar-nav ms-auto">
+              {% for item in site.data.topnav %}
+              <li class="nav-item {% if page.url == item.link %} active{% endif %} {% if item.name == 'login' %}existingUserQ newUser{% endif %}{% if item.name == 'user' %}welcomeUserTxt loggedin{% endif %} {% if item.subitems %}dropdown{%endif%}">
+                <a {% if item.name == 'login' %}data-toggle="modal" data-target="#modalLoginForm"{% endif %} class="nav-link {% if page.url == item.link %} active{% endif %} {% if item.subitems %}dropdown-toggle{%endif%}" {% if item.subitems %}data-toggle="dropdown"{%endif%} href="{{ item.link }}">
+                  {% if item.name == 'login' %}<span>ورود / عضویت</span>{% endif %}
+                  {% if item.faClass %}
+                  <i class="{{ item.faClass }}" aria-hidden="true"></i>
+                  {% else %}
+                  {{ item.label }}
+                  {% if page.url == item.link %} <span class="sr-only">(کنونی)</span>{% endif %}
+                  {% endif %}
+                  {% if item.name == 'user' %}<span class="userFullName"></span>{% endif %}
+                </a>
+                {% if item.subitems %}
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    {% for entry in item.subitems %}
+                      <li class="dropdown-item {{entry.class}}"><a href="{{ entry.url }}">{{ entry.label }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {%endif%}
+
+              </li>
+              {% endfor %}
+            </div>
+        </div>
+    </div>
+</nav>
+{% if site.tags != "" %}
+  {% include collecttags.html %}
+{% endif %}

@@ -1,0 +1,108 @@
+---
+layout: default
+---
+
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-3">
+      {% include sidebar.html %}
+    </div>
+    <div class="col-9 pt-5  mt-5">
+      <div class="container">
+        <div id="grid" class="grid">
+          <div class="grid-sizer"></div>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="button" class="btn btn-secondary" name="loadMore" id="loadMore" style="display:none;">بیشتر</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var no =2;
+  var to = 2;
+  var catPosts, filteredCats,searchTxt;
+  var $grid = $('.grid').masonry({
+    originLeft: false,
+    columnWidth: ".grid-sizer",
+    itemSelector: ".grid-item",
+    percentPosition: true
+  });
+
+  // external js: isotope.pkgd.js
+displayPost(posts);
+$('#loadMore').on('click', function () {
+  to += no;
+  displayPost(posts);
+})
+function displayPost(posts) {
+  if (posts.length > to ) {
+    $('#loadMore').show();
+  } else {
+    $('#loadMore').hide();
+  }
+  for (var i = to-no ; i < to; i++) {
+    if (i< posts.length) {
+      var taglist= '';
+      var $postCard = '';
+      for (var j = 0; j < posts[i].tags.length; j++) {
+        var tagitem= `<span class="badge bg-light text-dark mx-1">${posts[i].tags[j]}</span>`;
+        taglist += tagitem;
+      }
+      var postCard = `
+      <div class="grid-item ${posts[i].featured? 'grid-item--width2': ''} ${posts[i].category[0].slug} px-2 pb-4 mb-2">
+        <div class="card rounded-0 border-3 border-dark border-start-0 border-end-0 border-top-0">
+          <a href="${posts[i].link}"><img src="${posts[i].coverImg}" class="card-img-top" alt="${posts[i].title}"></a>
+          <div class="card-body p-0">
+            <small class="bold"><span class="text-danger"><a class="text-reset" href="${posts[i].category[0].url} ">${posts[i].category[0].title} </a></span> | <span class="persianDate" data-timestamp="${posts[i].date}"></span></small>
+            <h3 class="card-title ${posts[i].featured? 'display-4': 'display-6'} p-0 m-0"><a class="text-reset" href="${posts[i].link}">${posts[i].title}</a></h3>
+            <div class="card-text p-0">${taglist}</div>
+          </div>
+        </div>
+      </div>
+      `;
+      $postCard = $(postCard)
+      $grid.append($postCard).masonry( 'appended', $postCard );
+    }
+  }
+}
+
+function filterPost() {
+  var selectedPosts = posts;
+  filteredCats = [];
+  if (searchTxt) {
+    selectedPosts = selectedPosts.filter(function(el) {
+       return el.search.includes(searchTxt)
+    } );
+  }
+    filteredCats = $('input[name=category]').filter(":checked").map(function(){return this.value;}).get();
+    if (filteredCats.length > 0) {
+      selectedPosts = selectedPosts.filter(i => i.category.some(g=> filteredCats.includes(g.slug)))
+    }
+    filteredTags = $('input[name=tag]').filter(":checked").map(function(){return this.value;}).get();
+    if (filteredTags.length > 0) {
+      selectedPosts = selectedPosts.filter(i => i.tags.some(g=> filteredTags.includes(g)))
+    }
+    $grid.masonry( 'remove', $grid.find('.grid-item') ).masonry('layout');
+    displayPost(selectedPosts)
+}
+$('#clearBtn').on('click', function functionName() {
+  $('#searchForm').trigger('reset');
+  $('#searchBtn').show();
+  $('#clearBtn').hide();
+  searchTxt = null;
+  filterPost()
+
+})
+$('#searchForm').submit(function (e) {
+  e.preventDefault();
+  $('#searchBtn').hide();
+  $('#clearBtn').show();
+  searchTxt = $('#searchTxt').val();
+  filterPost()
+})
+$('input[type=checkbox]').on('change', function () {
+  filterPost()
+})
+</script>

@@ -1,0 +1,42 @@
+<!-- Sidebar -->
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white sticky-top pt-5">
+  <div class="position-sticky pt-5">
+    <div class="ui-group mt-2">
+      <h3>جستجو</h3>
+      <form id="searchForm">
+        <div class="input-group mb-3">
+          <input type="search" class="form-control border-top-0 border-end-0 border-start-0 border-dark border-2" id="searchTxt" placeholder="عبارت مورد نظر..." aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-link text-reset border-top-0 border-end-0 border-start-0 border-dark border-2" type="button" id="clearBtn" style="display:none;"><i class="bi bi-x"></i></button>
+          <button class="btn btn-link text-reset border-top-0 border-end-0 border-start-0 border-dark border-2" type="submit" id="searchBtn"><i class="bi bi-search"></i></button>
+        </div>
+      </form>
+      <div class="filters">
+        <h3>موضوع‌</h3>
+        {% capture homecats %}
+        {% for category in site.categories %}
+        {% assign catsize = site.posts | where: 'categories', category.slug | size %}
+        {% assign filtered_posts = site.posts | where: "categories", category.slug  %}
+        <span data-sort="{{ catsize | plus: 1000}}" class="option-set" data-group="{{category.slug}}">
+          <input type="checkbox" class="btn-check" name="category" value="{{category.slug}}" id="{{category.slug}}" autocomplete="off">
+          <label class="btn btn-outline-dark btn-sm  mb-1" for="{{category.slug}}">{{category.title}}</label>
+        </span>
+        {%endfor%}
+        {% endcapture %}
+        {{ homecats | split:'</span>' | sort | reverse | join:'</span>' }}
+        <h2 class="mb-0 pb-0">برچسب</h2>
+        {% capture hometags%}
+        {% assign tags =  site.posts | map: 'tags' | join: ','  | split: ',' | uniq | sort %}
+        {% for tag in tags %}
+        {% assign tagsize = site.posts | where: 'tags', tag | size %}
+        <span data-sort="{{ catsize | plus: 1000}}" class="option-set" data-group="{{category.slug}}">
+          <input type="checkbox" class="btn-check" name="tag" value="{{tag}}" id="{{tag}}" autocomplete="off">
+          <label class="btn btn-outline-dark btn-sm mb-1" for="{{tag}}">{{tag}}</label>
+        </span>
+        {% endfor %}
+        {% endcapture %}
+        {{ hometags | split:'</span>' | sort | reverse | join:'</span>' }}
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Sidebar -->

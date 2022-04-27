@@ -1,0 +1,29 @@
+- name: home
+  label: صفحه نخست
+  link: /
+  faClass: "bi bi-house-fill"
+- name: enter
+  label: ورود
+  link: /login/
+- name: about
+  label: درباره
+  link: /about/
+- name: articles
+  label: یادداشت‌‌ها
+  link: ''
+  subitems:
+    - name: historical
+      label: تاریخی
+      link: /historical/
+    - name: theory
+      label: نظری
+      link: /theory/
+    - name: critique
+      label: نقد
+      link: /critique/
+    - name: iranologie
+      label: ایران‌‌شناسی
+      link: /iranologie/
+- name: contact
+  label: تماس
+  link: /contact/
