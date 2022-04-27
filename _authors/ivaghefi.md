@@ -1,6 +1,6 @@
 ---
 title: ایمان واقفی
-slug: evaghefi
+slug: ivaghefi
 excerpt: 'دکترای جغرافیای انسانی -  مدرس دانشگاه '
 avatar: ''
 coverimg: ''
