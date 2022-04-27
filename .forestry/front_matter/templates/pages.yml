@@ -24,3 +24,5 @@ fields:
   config:
     maxSize: 5
   label: coverImg
+pages:
+- _authors/ایمان-واقفی.md
