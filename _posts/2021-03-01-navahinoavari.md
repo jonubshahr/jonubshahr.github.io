@@ -84,28 +84,28 @@ featured: true
 
 ## منابع
 
-› Castells, Manuel  (1977). The urban question: A Marxist approach. ,London: E. Arnold.
+    › Castells, Manuel  (1977). The urban question: A Marxist approach. ,London: E. Arnold.
 
-› Drucker, Peter (1985). Innovation and entrepreneurship. (New York: Harper, 1985).
+    › Drucker, Peter (1985). Innovation and entrepreneurship. (New York: Harper, 1985).
 
-› Etzkowitz, Henry (1993). Technology transfer: The second academic revolution. Technology Access Report 6.7: 7-9.
+    › Etzkowitz, Henry (1993). Technology transfer: The second academic revolution. Technology Access Report 6.7: 7-9.
 
-› Etzkowitz, Henry (2003). Innovation in innovation: The triple helix of university-industry-government relations. Social science information 42.3: 293-337.
+    › Etzkowitz, Henry (2003). Innovation in innovation: The triple helix of university-industry-government relations. Social science information 42.3: 293-337.
 
-› Etzkowitz, Henry, and Leydesdorff, Loet (1995). The Triple Helix--University-industry-government relations: A laboratory for knowledge based economic development. EASST review 14.1: 14-19.
+    › Etzkowitz, Henry, and Leydesdorff, Loet (1995). The Triple Helix--University-industry-government relations: A laboratory for knowledge based economic development. EASST review 14.1: 14-19.
 
-› Florida, Richard (2014). Startup City: The Urban Shift in Venture Capital and High Technology. Toronto: Martin Prosperity Institute.
+    › Florida, Richard (2014). Startup City: The Urban Shift in Venture Capital and High Technology. Toronto: Martin Prosperity Institute.
 
-› Florida, Richard. Gates, G. Technology and tolerance. In Florida, R (2005). Cities and The Creative Class. New York: Routladge.
+    › Florida, Richard. Gates, G. Technology and tolerance. In Florida, R (2005). Cities and The Creative Class. New York: Routladge.
 
-› Gerhard, Ulrike, Michael Hoelscher, and David Wilson, eds (2016). Inequalities in creative cities: issues, approaches, comparisons. New York: Springer.
+    › Gerhard, Ulrike, Michael Hoelscher, and David Wilson, eds (2016). Inequalities in creative cities: issues, approaches, comparisons. New York: Springer.
 
-› Harvey, David (1989). From managerialism to entrepreneurialism: The transformation in urban governance in late capitalism. Geografiska Annaler.  71 (1). pp. 3-17.
+    › Harvey, David (1989). From managerialism to entrepreneurialism: The transformation in urban governance in late capitalism. Geografiska Annaler.  71 (1). pp. 3-17.
 
-› Katz, Bruce. and Bradley, Jennifer (2014). The Metropolitan Revolution: How Cities and Metros are Fixing our Broken Politics and Economy, Washington: Brookings.
+    › Katz, Bruce. and Bradley, Jennifer (2014). The Metropolitan Revolution: How Cities and Metros are Fixing our Broken Politics and Economy, Washington: Brookings.
 
-› Katz, Bruce. and Wagner, Julie (2014). The rise of innovation districts; A new geography of innovation in America, Washington: Brookings.
+    › Katz, Bruce. and Wagner, Julie (2014). The rise of innovation districts; A new geography of innovation in America, Washington: Brookings.
 
-› Scott, Allen J (2008). Social Economy of The Metropolis; Cognitive-Cultural Capitalism and The Global Resurgence of Cities, Oxford: Oxford University Press.
+    › Scott, Allen J (2008). Social Economy of The Metropolis; Cognitive-Cultural Capitalism and The Global Resurgence of Cities, Oxford: Oxford University Press.
 
-› Zukin, Sharon (2020). The innovation complex: Cities, tech, and the new economy, Oxford University Press.
+    › Zukin, Sharon (2020). The innovation complex: Cities, tech, and the new economy, Oxford University Press.
