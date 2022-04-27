@@ -24,6 +24,9 @@ fields:
 - type: datetime
   name: date
   label: date
+- name: featured
+  type: boolean
+  label: featured
 - type: list
   name: categories
   label: categories
