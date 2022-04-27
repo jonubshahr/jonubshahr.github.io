@@ -2,7 +2,7 @@
 title: نواحی نوآوری؛  از خیال تا واقعیت
 slug: navahinoavari
 authors:
-- _authors/ایمان-واقفی.md
+- _authors/ivaghefi.md
 date: 2021-03-01 00:00:00 +0330
 categories:
 - _categories/articles.md
