@@ -51,3 +51,5 @@ fields:
   config:
     required: false
   label: excerpt
+pages:
+- _posts/نواحی-نوآوری-از-خیال-تا-واقعیت.md
