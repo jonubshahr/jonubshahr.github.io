@@ -1,0 +1,32 @@
+---
+label: posts
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- name: slug
+  type: text
+  config:
+    required: false
+  label: slug
+- type: datetime
+  name: date
+  label: date
+- type: list
+  name: categories
+  label: categories
+  config:
+    use_select: true
+    source:
+      type: pages
+      section: categories
+- type: list
+  name: tags
+  label: tags
+- type: text
+  name: layout
+  label: layout
+- type: file
+  name: coverImg
+  label: coverImg
