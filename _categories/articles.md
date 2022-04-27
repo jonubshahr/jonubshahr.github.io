@@ -1,4 +1,4 @@
 ---
-title: مقاله
+title: یادداشت
+slug: articles
 ---
-

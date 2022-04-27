@@ -31,7 +31,6 @@ github_username:  jonubshahr
 theme: minima
 plugins:
   - jekyll-feed
-permalink: "/posts/:slug/"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -56,6 +55,9 @@ collections:
   posts:
     title: Posts
     output: true
+  tags:
+    title: برچسب
+    output: true
   categories:
     title: دسته
     output: true
@@ -77,10 +79,15 @@ defaults:
     permalink: "/:authors/"
 - scope:
     path: ''
+    type: tags
+  values:
+    layout: archive
+- scope:
+    path: ''
     type: posts
   values:
     layout: post
 - scope:
     path: ''
   values:
-    layout: default
+    layout: default    

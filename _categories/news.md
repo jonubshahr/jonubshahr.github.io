@@ -1,4 +1,4 @@
 ---
-title: تازه‌ها
+title: خبر
+slug: news
 ---
-
