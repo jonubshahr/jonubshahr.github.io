@@ -46,3 +46,8 @@ fields:
 - type: file
   name: coverImg
   label: coverImg
+- name: excerpt
+  type: text
+  config:
+    required: false
+  label: excerpt
