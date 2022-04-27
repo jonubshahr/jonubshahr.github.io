@@ -1,7 +1,7 @@
 ---
 label: posts
 hide_body: false
-display_field: title
+display_field: slug
 fields:
 - type: text
   name: title
