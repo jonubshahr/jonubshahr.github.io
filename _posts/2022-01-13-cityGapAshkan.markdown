@@ -6,7 +6,6 @@ categories:
 tags:
 - ویژه
 - اشکان
-layout: post
 coverImg: "/assets/img/cityGapAshkan.png"
 ---
 

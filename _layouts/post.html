@@ -13,7 +13,7 @@ layout: default
           <a href="{{botcaturl}}" class="text-reset">{{botcat}}</a>
         </h3>
         <h1 class="display-1">{{page.title}}</h1>
-        {% if page.date %}<p class="persianDate text-muted" data-timestamp="{{page.date | date: '%s'}}"></p>{% endif %}
+        {% if page.date %} {% for author in page.authors%}{{author}}{%endfor%}<p class="persianDate text-muted" data-timestamp="{{page.date | date: '%s'}}"></p>{% endif %}
       </div>
       <div class="col-12">
         <img src="{{page.coverImg}}" class="img-fluid w-100" alt="" style="height:100vh;object-fit:cover;">

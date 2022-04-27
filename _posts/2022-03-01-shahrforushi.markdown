@@ -7,7 +7,6 @@ tags:
 - شهرفروشی
 - عابرپیاده
 layout: post
-featured: '1'
 coverImg: "/assets/img/meidaan1.jpg"
 ---
 
