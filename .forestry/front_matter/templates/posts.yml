@@ -40,9 +40,6 @@ fields:
     source:
       type: pages
       section: tags
-- type: text
-  name: layout
-  label: layout
 - type: file
   name: coverImg
   label: coverImg
