@@ -51,3 +51,13 @@ fields:
   config:
     required: false
   label: excerpt
+- name: geotags
+  type: list
+  config:
+    use_select: true
+    min: 
+    max: 
+    source:
+      type: pages
+      section: geotags
+  label: geotags
