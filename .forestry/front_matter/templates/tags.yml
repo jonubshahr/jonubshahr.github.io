@@ -13,4 +13,5 @@ fields:
   config:
     required: true
 pages:
+- _tags/غیررسمی.md
 - _tags/مصاحبه.md
