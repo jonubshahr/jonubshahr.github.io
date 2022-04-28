@@ -12,3 +12,5 @@ fields:
   label: slug
   config:
     required: true
+pages:
+- _tags/مصاحبه.md
