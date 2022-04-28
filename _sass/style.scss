@@ -42,25 +42,6 @@ a {
   color: inherit;
 }
 
-a:after {
-  content: '';
-  color: inherit;
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #111;
-  transform-origin: bottom left;
-  transition: transform 0.25s ease-out;
-}
-
-a:hover:after {
-  color: inherit;
-  transform: scaleX(1);
-  transform-origin: bottom right;
-}
 @font-face {
 	font-family: Jomhuria;
 	font-style: normal;
@@ -128,4 +109,16 @@ input, .form-control:focus {
 .btn:active{
     box-shadow:none !important;
     outline:0px !important;
+}
+.content img{
+  width: 100%;
+}
+blockquote {
+  background: #f9f9f9;
+  border-right: 10px solid #ccc;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+code{
+    white-space: pre-line;
 }

@@ -54,16 +54,24 @@ permalink: "/posts/:slug/"
 #   - vendor/ruby/
 collections:
   posts:
-    title: Posts
+    title: مطالب
+    label: posts
     output: true
   tags:
-    title: برچسب
+    title: برچسب‌ها
+    label: tags
+    output: true
+  geotags:
+    title: موقعیت
+    label: geotags
     output: true
   categories:
-    title: دسته
+    title: موضوع‌ها
+    label: categories
     output: true
   authors:
     title: نویسنده‌ها
+    label: authors
     output: true
 defaults:
 - scope:
@@ -80,6 +88,11 @@ defaults:
 - scope:
     path: ''
     type: tags
+  values:
+    layout: archive
+- scope:
+    path: ''
+    type: geotags
   values:
     layout: archive
 - scope:

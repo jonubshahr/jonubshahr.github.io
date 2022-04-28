@@ -47,15 +47,16 @@ function displayPost(posts) {
       var taglist= '';
       var $postCard = '';
       for (var j = 0; j < posts[i].tags.length; j++) {
-        var tagitem= `<span class="badge bg-light text-dark mx-1">${posts[i].tags[j]}</span>`;
+        var tagitem= `<a href="${posts[i].tags[j].url}" class="btn btn-light rounded-pill"><i class="bi bi-hash"></i>${posts[i].tags[j].title}</a>`;
         taglist += tagitem;
       }
+      var postDate = persianDate(posts[i].date);
       var postCard = `
       <div class="grid-item ${posts[i].featured? 'grid-item--width2': ''} ${posts[i].category[0].slug} px-2 pb-4 mb-2">
         <div class="card rounded-0 border-3 border-dark border-start-0 border-end-0 border-top-0">
           <a href="${posts[i].link}"><img src="${posts[i].coverImg}" class="card-img-top" alt="${posts[i].title}"></a>
-          <div class="card-body p-0">
-            <small class="bold"><span class="text-danger"><a class="text-reset" href="${posts[i].category[0].url} ">${posts[i].category[0].title} </a></span> | <span class="persianDate" data-timestamp="${posts[i].date}"></span></small>
+          <div class="card-body p-0 pb-1">
+            <small class="bold"><span class="text-danger"><a class="text-reset" href="${posts[i].category[0].url} ">${posts[i].category[0].title} </a></span> | <spa>${postDate}</span></small>
             <h3 class="card-title ${posts[i].featured? 'display-4': 'display-6'} p-0 m-0"><a class="text-reset" href="${posts[i].link}">${posts[i].title}</a></h3>
             <div class="card-text p-0">${taglist}</div>
           </div>
@@ -82,7 +83,7 @@ function filterPost() {
     }
     filteredTags = $('input[name=tag]').filter(":checked").map(function(){return this.value;}).get();
     if (filteredTags.length > 0) {
-      selectedPosts = selectedPosts.filter(i => i.tags.some(g=> filteredTags.includes(g)))
+      selectedPosts = selectedPosts.filter(i => i.tags.some(g=> filteredTags.includes(g.slug)))
     }
     $grid.masonry( 'remove', $grid.find('.grid-item') ).masonry('layout');
     displayPost(selectedPosts)

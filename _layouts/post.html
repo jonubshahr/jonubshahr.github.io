@@ -1,10 +1,13 @@
 ---
 layout: default
 ---
-
-{% for category in page.categories %}{% assign cat = site.categories | where: 'slug', category | first %}
+{% for category in page.categories %}{% assign cat = site.categories | where: 'relative_path', category | first %}
 {% if cat %}{% assign botcat = cat.title %}{% assign botcaturl = cat.url %}{% endif %}
 {% endfor %}
+{% if page.authors%}{% for author in page.authors %}{% assign aut = site.authors | where: 'relative_path', author | first %}
+{% if aut %}{% assign botaut = aut.title %}{% assign botauturl = aut.url %}{% endif %}
+{% endfor %}
+{%endif%}
 <section>
   <div class="container">
     <div class="row">
@@ -12,17 +15,41 @@ layout: default
         <h3 class="text-danger">
           <a href="{{botcaturl}}" class="text-reset">{{botcat}}</a>
         </h3>
-        <h1 class="display-1">{{page.title}}</h1>
-        {% if page.date %} {% for author in page.authors%}{{author}}{%endfor%}<p class="persianDate text-muted" data-timestamp="{{page.date | date: '%s'}}"></p>{% endif %}
+        <h1 class="display-1 mb-0">{{page.title}}</h1>
+        {% if page.date %}<p class="persianDate text-muted" data-timestamp="{{page.date | date: '%s'}}"></p>{% endif %}
       </div>
       <div class="col-12">
         <img src="{{page.coverImg}}" class="img-fluid w-100" alt="" style="height:100vh;object-fit:cover;">
       </div>
     </div>
+    {% if page.authors%}{% for author in page.authors %}{% assign aut = site.authors | where: 'relative_path', author | first %}
+    {% if aut %}
+    <div class="row justify-content-md-center m-2">
+      <div class="col col-lg-6 py-1 bg-light d-flex align-items-center">
+        <img src="//images.weserv.nl/?url=https://jonubshahr.github.io{{ aut.avatar }}&w=80&h=80&fit=cover&mask=circle" class="float-start me-2"><div><a href="{{aut.url}}" class="text-reset lead"><strong>{{aut.title}}</strong></a><br>{{aut.excerpt}}</div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}{%endif%}
     <div class="row justify-content-md-center">
-      <div class="col col-lg-6 lead pt-3">
+      <div class="col col-lg-6 lead pt-3 content">
+        {%if page.excerpt%}<blockquote class="blockquote">{{page.excerpt}}</blockquote>{%endif%}
         {{page.content| markdownify}}
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6 lead pt-3 content">
+        {% if page.tags%}<p><span class="h2">برچسب(ها): </span>{% for tag in page.tags %}{%assign tg = site.tags | where: 'relative_path', tag | first%}<a href="{{tg.url}}" class="btn btn-secondary rounded-pill">{{tg.title}}</a>{%endfor%}</p>{%endif%}
+        <p><span class="mt-1 h2">اشتراک:</span>
+        <a href="{{tg.url}}" class="btn btn-secondary rounded-circle"><i class="bi bi-twitter"></i></a>
+        <a href="{{tg.url}}" class="btn btn-secondary rounded-circle"><i class="bi bi-telegram"></i></a>
+        <a href="{{tg.url}}" class="btn btn-secondary rounded-circle"><i class="bi bi-whatsapp"></i></a>
+        <a href="{{tg.url}}" class="btn btn-secondary rounded-circle"><i class="bi bi-envelope"></i></a>
+        <a href="{{tg.url}}" class="btn btn-secondary rounded-circle"><i class="bi bi-link-45deg"></i></a>
+        </p>
       </div>
     </div>
   </div>
 </section>
+<script type="text/javascript">
+</script>

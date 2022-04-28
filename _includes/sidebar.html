@@ -14,25 +14,27 @@
         <h3>موضوع‌</h3>
         {% capture homecats %}
         {% for category in site.categories %}
-        {% assign catsize = site.posts | where: 'categories', category.slug | size %}
-        {% assign filtered_posts = site.posts | where: "categories", category.slug  %}
+        {% assign catsize = site.posts | where: 'categories', category.relative_path | size %}
+        {%if catsize >0 %}
         <span data-sort="{{ catsize | plus: 1000}}" class="option-set" data-group="{{category.slug}}">
           <input type="checkbox" class="btn-check" name="category" value="{{category.slug}}" id="{{category.slug}}" autocomplete="off">
           <label class="btn btn-outline-dark btn-sm  mb-1" for="{{category.slug}}">{{category.title}}</label>
         </span>
+        {%endif%}
         {%endfor%}
         {% endcapture %}
         {{ homecats | split:'</span>' | sort | reverse | join:'</span>' }}
         <h2 class="mb-0 pb-0">برچسب</h2>
-        {% capture hometags%}
-        {% assign tags =  site.posts | map: 'tags' | join: ','  | split: ',' | uniq | sort %}
-        {% for tag in tags %}
-        {% assign tagsize = site.posts | where: 'tags', tag | size %}
-        <span data-sort="{{ catsize | plus: 1000}}" class="option-set" data-group="{{category.slug}}">
-          <input type="checkbox" class="btn-check" name="tag" value="{{tag}}" id="{{tag}}" autocomplete="off">
-          <label class="btn btn-outline-dark btn-sm mb-1" for="{{tag}}">{{tag}}</label>
+        {% capture hometags %}
+        {% for tag in site.tags %}
+        {% assign tagsize = site.posts | where: 'tags', tag.relative_path | size %}
+        {%if tagsize >0 %}
+        <span data-sort="{{ tagsize | plus: 1000}}" class="option-set" data-group="{{category.slug}}">
+          <input type="checkbox" class="btn-check" name="tag" value="{{tag.slug}}" id="{{tag.slug}}" autocomplete="off">
+          <label class="btn btn-outline-dark btn-sm  mb-1" for="{{tag.slug}}">{{tag.title}}</label>
         </span>
-        {% endfor %}
+        {%endif%}
+        {%endfor%}
         {% endcapture %}
         {{ hometags | split:'</span>' | sort | reverse | join:'</span>' }}
       </div>

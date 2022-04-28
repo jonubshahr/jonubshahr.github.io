@@ -1,8 +1,11 @@
 $(document).ready(function(){
+
 $('.persianDate').each(function () {
-  var postDate = new Date(parseInt($(this).attr('data-timestamp'))*1000);
-  var persianDate = postDate.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
-  $(this).text(persianDate);
+  var pDate = persianDate($(this).attr('data-timestamp'))
+  $(this).text(pDate);
+});
+$('.content img').each(function () {
+  $(this).after('<figcaption class="figure-caption">'+$(this).attr('title')+'</figcaption>')
 })
 })
 $.ajax({
@@ -13,3 +16,8 @@ $.ajax({
     posts = data;
   }
 });
+function persianDate(timestamp) {
+  var stampDate = new Date(timestamp*1000);
+  var faDate = stampDate.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
+  return faDate;
+}
