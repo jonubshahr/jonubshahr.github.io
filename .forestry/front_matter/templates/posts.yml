@@ -43,14 +43,6 @@ fields:
     source:
       type: pages
       section: tags
-- type: file
-  name: coverImg
-  label: coverImg
-- name: excerpt
-  type: text
-  config:
-    required: false
-  label: excerpt
 - name: geotags
   type: list
   config:
@@ -61,3 +53,11 @@ fields:
       type: pages
       section: geotags
   label: geotags
+- type: file
+  name: coverImg
+  label: coverImg
+- name: excerpt
+  type: text
+  config:
+    required: false
+  label: excerpt
