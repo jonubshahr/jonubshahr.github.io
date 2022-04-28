@@ -25,6 +25,11 @@ sections:
   create: all
   match: "**/*"
 - type: directory
+  path: _geotags
+  label: Geotags
+  create: all
+  match: "**/*"
+- type: directory
   path: _authors
   label: Authors
   create: all
