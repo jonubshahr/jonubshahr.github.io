@@ -29,6 +29,8 @@ sections:
   label: Geotags
   create: all
   match: "**/*"
+  templates:
+  - geotags
 - type: directory
   path: _authors
   label: Authors
