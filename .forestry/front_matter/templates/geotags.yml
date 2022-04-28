@@ -5,9 +5,17 @@ fields:
 - type: text
   name: title
   label: title
+  config:
+    required: true
 - type: text
   name: slug
   label: slug
+  config:
+    required: true
 - type: text
   name: location
   label: location
+  config:
+    required: true
+  description: در گوگل‌مپ نقطه مورد نظر را پیدا کنید با کلیک راست موقعیت نقطه را کپی
+    و در اینجا جاگذاری کنید.
