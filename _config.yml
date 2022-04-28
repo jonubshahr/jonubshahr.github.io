@@ -79,22 +79,25 @@ defaults:
     type: categories
   values:
     layout: archive
-    permalink: "/:slug/"
+    permalink: "/categories/:slug/"
 - scope:
     path: ''
     type: authors
   values:
     layout: archive
+    permalink: "/authors/:slug/"
 - scope:
     path: ''
     type: tags
   values:
     layout: archive
+    permalink: "/tags/:slug/"
 - scope:
     path: ''
     type: geotags
   values:
     layout: archive
+    permalink: "/geotags/:slug/"    
 - scope:
     path: ''
     type: posts

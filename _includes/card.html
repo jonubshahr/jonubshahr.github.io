@@ -8,7 +8,10 @@
           {% endfor %}{%endif%}<span class="persianDate" data-timestamp="{{post.date | date: '%s'}}"></span>
         </small>
         <h3 class="card-title {% if post.featured %}display-4 {%else%}display-6 {%endif%}p-0 m-0"><a class="text-reset" href="{{post.url}}">{{post.title}}</a></h3>
-        <div class="card-text p-0">{% for tag in post.tags %}{%assign tg = site.tags | where: 'relative_path', tag | first%}<a href="{{tg.url}}" class="btn btn-light rounded-pill">{{tg.title}}</a>{%endfor%}</div>
+        <div class="card-text p-0">
+          {% for tag in post.tags %}{%assign tg = site.tags | where: 'relative_path', tag | first%}<a href="{{tg.url}}" class="btn btn-light rounded-pill"><i class="bi bi-hash"></i>{{tg.title}}</a>{%endfor%}
+          {% for geotag in post.geotags %}{%assign gtg = site.geotags | where: 'relative_path', geotag | first%}<a href="{{gtg.url}}" class="btn btn-light rounded-pill"><i class="bi bi-geo-alt-fill"></i>{{gtg.title}}</a>{%endfor%}
+        </div>
       </div>
   </div>
 </div>

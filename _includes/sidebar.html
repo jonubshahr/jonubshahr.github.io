@@ -4,10 +4,10 @@
     <div class="ui-group mt-2">
       <h3>جستجو</h3>
       <form id="searchForm">
-        <div class="input-group mb-3">
-          <input type="search" class="form-control border-top-0 border-end-0 border-start-0 border-dark border-2" id="searchTxt" placeholder="عبارت مورد نظر..." aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-link text-reset border-top-0 border-end-0 border-start-0 border-dark border-2" type="button" id="clearBtn" style="display:none;"><i class="bi bi-x"></i></button>
-          <button class="btn btn-link text-reset border-top-0 border-end-0 border-start-0 border-dark border-2" type="submit" id="searchBtn"><i class="bi bi-search"></i></button>
+        <div class="input-group mb-3 rounded-0">
+          <input type="search" class="form-control rounded-0 border-top-0 border-end-0 border-start-0 border-dark border-2" id="searchTxt" placeholder="عبارت مورد نظر..." aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-link text-reset rounded-0 border-top-0 border-end-0 border-start-0 border-dark border-2" type="button" id="clearBtn" style="display:none;"><i class="bi bi-x"></i></button>
+          <button class="btn btn-link text-reset rounded-0 border-top-0 border-end-0 border-start-0 border-dark border-2" type="submit" id="searchBtn"><i class="bi bi-search"></i></button>
         </div>
       </form>
       <div class="filters">
@@ -24,6 +24,19 @@
         {%endfor%}
         {% endcapture %}
         {{ homecats | split:'</span>' | sort | reverse | join:'</span>' }}
+        <h2 class="mb-0 pb-0">موقعیت</h2>
+        {% capture homegeotags %}
+        {% for geotag in site.geotags %}
+        {% assign geotagsize = site.posts | where: 'geotags', geotag.relative_path | size %}
+        {%if geotagsize >0 %}
+        <span data-sort="{{ geotagsize | plus: 1000}}" class="option-set" data-group="{{geotag.slug}}">
+          <input type="checkbox" class="btn-check" name="geotag" value="{{geotag.slug}}" id="{{geotag.slug}}" autocomplete="off">
+          <label class="btn btn-outline-dark btn-sm  mb-1" for="{{geotag.slug}}">{{geotag.title}}</label>
+        </span>
+        {%endif%}
+        {%endfor%}
+        {% endcapture %}
+        {{ homegeotags | split:'</span>' | sort | reverse | join:'</span>' }}
         <h2 class="mb-0 pb-0">برچسب</h2>
         {% capture hometags %}
         {% for tag in site.tags %}

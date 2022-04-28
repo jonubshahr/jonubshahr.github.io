@@ -18,9 +18,11 @@ layout: default
         <h1 class="display-1 mb-0">{{page.title}}</h1>
         {% if page.date %}<p class="persianDate text-muted" data-timestamp="{{page.date | date: '%s'}}"></p>{% endif %}
       </div>
+      {%if page.coverImg != ''%}
       <div class="col-12">
         <img src="{{page.coverImg}}" class="img-fluid w-100" alt="" style="height:100vh;object-fit:cover;">
       </div>
+      {%endif%}
     </div>
     {% if page.authors%}{% for author in page.authors %}{% assign aut = site.authors | where: 'relative_path', author | first %}
     {% if aut %}
@@ -39,7 +41,7 @@ layout: default
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6 lead pt-3 content">
-        {% if page.tags%}<p><span class="h2">برچسب(ها): </span>{% for tag in page.tags %}{%assign tg = site.tags | where: 'relative_path', tag | first%}<a href="{{tg.url}}" class="btn btn-secondary rounded-pill">{{tg.title}}</a>{%endfor%}</p>{%endif%}
+        {% if page.tags or page.geotags%}<p><span class="h2">برچسب(ها): </span>{% for tag in page.tags %}{%assign tg = site.tags | where: 'relative_path', tag | first%}<a href="{{tg.url}}" class="btn btn-secondary rounded-pill mx-1"><i class="bi bi-hash"></i>{{tg.title}}</a>{%endfor%}{% for geotag in page.geotags %}{%assign gtg = site.geotags | where: 'relative_path', geotag | first%}<a href="{{gtg.url}}" class="btn btn-secondary rounded-pill mx-1"><i class="bi bi-geo-alt-fill"></i>{{gtg.title}}</a>{%endfor%}</p>{%endif%}
         <p><span class="mt-1 h2">اشتراک:</span>
         <a href="{{tg.url}}" class="btn btn-secondary rounded-circle"><i class="bi bi-twitter"></i></a>
         <a href="{{tg.url}}" class="btn btn-secondary rounded-circle"><i class="bi bi-telegram"></i></a>
