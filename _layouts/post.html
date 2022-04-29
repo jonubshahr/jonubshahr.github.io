@@ -18,7 +18,7 @@ layout: default
         <h1 class="display-1 mb-0">{{page.title}}</h1>
         {% if page.date %}<p class="persianDate text-muted" data-timestamp="{{page.date | date: '%s'}}"></p>{% endif %}
       </div>
-      {%if page.coverImg != ''%}
+      {%if page.coverImg != '' and page.coverImg%}
       <div class="col-12">
         <img src="{{page.coverImg}}" class="img-fluid w-100" alt="" style="height:100vh;object-fit:cover;">
       </div>

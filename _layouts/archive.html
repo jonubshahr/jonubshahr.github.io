@@ -2,12 +2,16 @@
 layout: default
 ---
 {%assign pagecollection = site.collections| where: "label", page.collection | first %}
-<script type="text/javascript">
-</script>
 <div class="container pt-5">
   <div class="row">
     <div class="col-12 text-center">
-      <h3 class="text-danger"><a class="text-reset" href="/{{pagecollection.label}}">{{pagecollection.title}}</a></h3>
+      <h3 class="text-danger"><a class="text-reset" data-bs-toggle="collapse" href="#collapse{{pagecollection.label}}" role="button" aria-expanded="false" aria-controls="collapse{{pagecollection.label}}">{{pagecollection.title}}</a></h3>
+      <div class="collapse" id="collapse{{pagecollection.label}}">
+        {%for subcollection in site[pagecollection.label]%}
+        {% assign subcolsize = site.posts | where_exp: "item", "item[pagecollection.label] contains subcollection.relative_path" | size  %}
+        {%if subcolsize > 0%}<a href="{{subcollection.url}}" class="btn btn-outline-dark btn-lg rounded-0{%if subcollection.url == page.url%} active{%endif%}"{%if subcollection.url == page.url%} aria-pressed="true"{%endif%}>{{subcollection.title}}</a>{%endif%}
+        {%endfor%}
+      </div>
       <h1 class="display-1">{{page.title}}</h1>
     </div>
   </div>
