@@ -19,11 +19,15 @@ sections:
   label: Categories
   create: all
   match: "**/*"
+  templates:
+  - tags
 - type: directory
   path: _tags
   label: Tags
   create: all
   match: "**/*"
+  templates:
+  - tags
 - type: directory
   path: _geotags
   label: Geotags
